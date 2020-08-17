@@ -12,7 +12,16 @@
 
 <div>
     <%= link_to "Crear Nuevo" , projects_new_path %>
+    <div style="float: right">
+        <label>Seleccione estado:</label>
+        <%= link_to "Todos", root_path %>
+        <%= link_to "Propuesta", list_filtered_path("propuesta") %>
+        <%= link_to "En Progreso", list_filtered_path("en progreso") %>
+        <%= link_to "Terminado", list_filtered_path("terminado") %>
+    </div>
 </div>
+<br/>
+<br/>
 <table style="width:100%">
   <tr>
     <th>Nombre</th>

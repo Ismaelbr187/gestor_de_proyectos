@@ -2,7 +2,11 @@ class ProjectsController < ApplicationController
   http_basic_authenticate_with name: 'desafiovamoscontodo', password: 'XAHTJEAS23123%23', except: [:dashboard]
 
   def dashboard
-    @projects = Project.all
+    if params[:filter_by].nil? || params[:filter_by].empty?
+      @projects = Project.all
+    else
+      @projects = Project.where(state: params[:filter_by])
+    end
   end
 
   def new
