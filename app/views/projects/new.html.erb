@@ -1,2 +1,38 @@
 <h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+
+<div>
+    <%= link_to "Volver", root_path %>
+</div>  
+
+<%= form_with(model: @project, local: true) do |form| %>
+
+    <br/>
+    <div class="form-group">
+        <%= form.label :name %><br/>
+        <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <br/>
+    <div class="form-group">
+        <%= form.label :description %><br/>
+        <%= form.text_area :description, class: "form-control" %>
+    </div>
+    <br/>
+    <div class="form-group">
+        <%= form.label :begin %><br/>
+        <%= form.date_field :begin %>
+    </div>
+    <br/>
+    <div class="form-group">
+        <%= form.label :end %><br/>
+        <%= form.date_field :end %>
+    </div>
+    <br/>
+    <div class="form-group">
+        <%= form.label :state %><br/>
+        <%= form.select :state, Project.states.keys %>
+    </div>
+    <br/>
+    <div  class="actions">
+        <%= form.submit class: "btn btn-primary float-right" %>
+    </div>
+<% end %>
